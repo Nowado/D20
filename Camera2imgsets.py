@@ -8,7 +8,7 @@ def take_picture(d,sets_delay,photo_delay,photo_per_side):
     camera.resolution = (1024, 768)
     for side in range(d):
         for j in range(sets_delay):
-            print('New set in ' + str(sets_delay) - j)
+            print('New set of '+str(side) +' side in ' + str(sets_delay) - j)
             sleep(1)
         for photo in range(photo_per_side):
             for i in range(photo_delay):
