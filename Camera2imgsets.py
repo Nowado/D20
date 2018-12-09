@@ -22,8 +22,8 @@ def take_pictures(d,sets_delay,photo_delay,photo_per_side):
 #            take_picture(str(i),delay)
 
 
-d=input('How many sides does your dice have?')
-photo_per_side=input('How many photos do you want to take per side?')
+d=int(input('How many sides does your dice have?'))
+photo_per_side=int(input('How many photos do you want to take per side?'))
 
 sets_delay=int(input('How many seconds do you want between sets?'))
 photo_delay=int(input('How many seconds do you want between photos?'))
