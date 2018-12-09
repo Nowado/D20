@@ -11,6 +11,7 @@ def take_picture(name,delay=5):
         print('Photo in ' + str(delay-i))
         sleep(1)
     camera.capture(name)
+    camera.stop_preview()
 
 #type(names)=[]
 def capture_set(names,delay):
