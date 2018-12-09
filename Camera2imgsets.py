@@ -7,15 +7,18 @@ def take_picture(name,delay=5):
     camera = PiCamera()
     camera.resolution = (1024, 768)
     camera.start_preview()
-    sleep(delay)
+    for i in range(delay):
+        print('Photo in ' + str(delay-i))
+        sleep(1)
     camera.capture(name)
 
 #type(names)=[]
 def capture_set(names,delay):
     for i in names:
-        take_picture(str(i),delay)
-
-temp=range(int(input('How many photos do you want to take?')))
+            print('Takng photo '+str(i) +' out of set of '+str(len(names)))
+            take_picture(str(i),delay)
+temp=input('How many photos do you want to take?')
+temp=range(int(temp))
 names=[]
 for i in temp:
     names.append(str(i)+'.jpg')
