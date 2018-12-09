@@ -4,16 +4,15 @@ from time import sleep
 
 #type(name)=str, name='abc.jpg'
 def take_picture(name,delay=5):
-    camera = PiCamera()
     camera.resolution = (1024, 768)
-    camera.start_preview()
     for i in range(delay):
         print('Photo in ' + str(delay-i))
         sleep(1)
     camera.capture(name, use_video_port=True)
-    camera.stop_preview()
 
 #type(names)=[]
+camera = PiCamera()
+
 def capture_set(names,delay):
     for i in names:
             print('Takng photo '+str(i) +' out of set of '+str(len(names)))
