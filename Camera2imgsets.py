@@ -9,7 +9,7 @@ def take_picture(name,delay=5):
     for i in range(delay):
         print('Photo in ' + str(delay-i))
         sleep(1)
-    camera.capture(name)
+    camera.capture(name, use_video_port=True)
 
 #type(names)=[]
 def capture_set(names,delay):
