@@ -6,10 +6,12 @@ from time import sleep
 def take_picture(name,delay=5):
     camera = PiCamera()
     camera.resolution = (1024, 768)
+    camera.start_preview()
     for i in range(delay):
         print('Photo in ' + str(delay-i))
         sleep(1)
     camera.capture(name, use_video_port=True)
+    camera.stop_preview()
 
 #type(names)=[]
 def capture_set(names,delay):
