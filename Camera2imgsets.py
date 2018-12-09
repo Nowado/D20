@@ -2,27 +2,31 @@
 from picamera import PiCamera
 from time import sleep
 
-#type(name)=str, name='abc.jpg'
-def take_picture(name,delay=5):
-    camera.resolution = (1024, 768)
-    for i in range(delay):
-        print('Photo in ' + str(delay-i))
-        sleep(1)
-    camera.capture(name, use_video_port=True)
-
-#type(names)=[]
 camera = PiCamera()
+
+def take_picture(d,sets_delay,photo_delay,photo_per_side):
+    camera.resolution = (1024, 768)
+    for side in range(d):
+        for j in range(sets_delay):
+            print('New set in ' + str(sets_delay) - j)
+            sleep(1)
+        for photo in range(photo_per_side):
+            for i in range(photo_delay):
+                print('Photo in ' + str(photo_delay-i))
+                sleep(1)
+            camera.capture(str(side)+'_'+str(photo)+'.jpg', use_video_port=True)
 
 def capture_set(names,delay):
     for i in names:
             print('Takng photo '+str(i) +' out of set of '+str(len(names)))
             take_picture(str(i),delay)
-temp=input('How many photos do you want to take?')
-temp=range(int(temp))
-names=[]
-for i in temp:
-    names.append(str(i)+'.jpg')
 
-delay=int(input('How many seconds do you want between photos?'))
 
-capture_set(names,delay)
+d=input('How many sides does your dice have?')
+photo_per_side=input('How many photos do you want to take per side?')
+
+sets_delay=int(input('How many seconds do you want between sets?'))
+photo_delay=int(input('How many seconds do you want between photos?'))
+
+
+capture_set(d,sets_delay,photo_delay,photo_per_side)
