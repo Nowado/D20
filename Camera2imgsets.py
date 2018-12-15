@@ -5,7 +5,7 @@ from time import sleep
 camera = PiCamera()
 
 def take_pictures(d,sets_delay,photo_delay,photo_per_side):
-    camera.resolution = (2048, 2048)
+    camera.resolution = (1024, 1024)
     for side in range(d):
         for j in range(sets_delay):
             print('New set of '+str(side+1) +' side in ' + str(sets_delay - j))
